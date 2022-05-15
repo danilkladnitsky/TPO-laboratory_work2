@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Logarithmic calculator test")
+@DisplayName("Логарифмические функции")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class InnerModulesTest {
 
