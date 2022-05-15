@@ -15,8 +15,8 @@ public abstract class AbstractFunction {
     }
 
     public Double getStubValue(Double stub) {
-        return calculateFunction(stub);
+        return calc(stub);
     }
 
-    public abstract Double calculateFunction(Double x);
+    public abstract Double calc(Double x);
 }

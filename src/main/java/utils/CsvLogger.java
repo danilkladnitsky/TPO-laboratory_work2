@@ -30,9 +30,9 @@ public class CsvLogger {
     public void log(AbstractFunction function) {
         String csvString = "";
 
-        try(PrintStream printStream = new PrintStream(new FileOutputStream(filePath, true))) {
+        try (PrintStream printStream = new PrintStream(new FileOutputStream(filePath, true))) {
             for (double i = lowerBorder; i < upperBorder; i += step) {
-                double result = function.calculateFunction(i);
+                double result = function.calc(i);
                 csvString = String.format(Locale.US, "%f%s %f\n", i, CSV_SEPARATOR, result);
                 printStream.print(csvString);
             }

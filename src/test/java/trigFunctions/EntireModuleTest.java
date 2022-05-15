@@ -6,10 +6,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import trigFunctions.Sec;
-import trigFunctions.Tan;
-import trigFunctions.TrigonometricFunction;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Тригонометрическая функция sec(x) * tan(x)")
@@ -44,7 +40,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/trigonometric/trig.csv")
     @DisplayName("Без заглушек")
     void noStubs(Double x, Double expectedResult) {
-        double actualResult = function.calculateFunction(x);
+        double actualResult = function.calc(x);
         assertEquals(expectedResult, actualResult, DELTA);
     }
 
@@ -52,7 +48,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/trigonometric/trig.csv")
     @DisplayName("Тангенс - заглушка")
     void StubbedTan(Double x, Double expectedResult) {
-        double actualResult = function.getStubValue(x, tan.getStubsTable().get(x), sec.calculateFunction(x));
+        double actualResult = function.getStubValue(x, tan.getStubsTable().get(x), sec.calc(x));
         assertEquals(expectedResult, actualResult, DELTA);
     }
 
@@ -60,7 +56,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/trigonometric/trig.csv")
     @DisplayName("Секанс - заглушка")
     void StubbedSec(Double x, Double expectedResult) {
-        double actualResult = function.getStubValue(x, tan.calculateFunction(x), sec.getStubsTable().get(x));
+        double actualResult = function.getStubValue(x, tan.calc(x), sec.getStubsTable().get(x));
         assertEquals(expectedResult, actualResult, DELTA);
     }
 

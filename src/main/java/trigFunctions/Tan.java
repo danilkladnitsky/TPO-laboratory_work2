@@ -23,8 +23,8 @@ public class Tan extends AbstractFunction {
         this.cosCalculator = new Cos(accuracy);
     }
 
-    public Double calculateFunction(Double arg) {
-        return sinCalculator.calculateFunction(arg) / cosCalculator.calculateFunction(arg);
+    public Double calc(Double arg) {
+        return sinCalculator.calc(arg) / cosCalculator.calc(arg);
     }
 
 }

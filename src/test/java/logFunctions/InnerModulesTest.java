@@ -46,7 +46,7 @@ public class InnerModulesTest {
             "Infinity, Infinity"
     })
     void lnTest(Double x, Double expectedResult) {
-        assertEquals(expectedResult, ln.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, ln.calc(x), DELTA);
     }
 
     @ParameterizedTest
@@ -65,7 +65,7 @@ public class InnerModulesTest {
             "Infinity, Infinity"
     })
     void log2Test(Double x, Double expectedResult) {
-        assertEquals(expectedResult, log2.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, log2.calc(x), DELTA);
     }
 
     @ParameterizedTest
@@ -83,7 +83,7 @@ public class InnerModulesTest {
             "Infinity, Infinity"
     })
     void log3Test(Double x, Double expectedResult) {
-        assertEquals(expectedResult, log3.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, log3.calc(x), DELTA);
     }
 
     @ParameterizedTest
@@ -102,7 +102,7 @@ public class InnerModulesTest {
             "Infinity, Infinity"
     })
     void log5Test(Double x, Double expectedResult) {
-        assertEquals(expectedResult, log5.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, log5.calc(x), DELTA);
     }
 
     @ParameterizedTest
@@ -121,7 +121,7 @@ public class InnerModulesTest {
             "Infinity, Infinity"
     })
     void log10Test(Double x, Double expectedResult) {
-        assertEquals(expectedResult, log10.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, log10.calc(x), DELTA);
     }
 
 }

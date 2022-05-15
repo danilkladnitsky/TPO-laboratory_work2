@@ -21,7 +21,7 @@ public class Sec extends AbstractFunction {
         this.cosCalculator = new Cos(accuracy);
     }
 
-    public Double calculateFunction(Double arg) {
-        return 1 / cosCalculator.calculateFunction(arg);
+    public Double calc(Double arg) {
+        return 1 / cosCalculator.calc(arg);
     }
 }

@@ -51,7 +51,7 @@ public class EntireModuleTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logarithmic/ln.csv")
     void stubNaturalLog(Double x, Double expectedResult) {
-        double lnValue = ln.calculateFunction(x);
+        double lnValue = ln.calc(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
         double log3StubbedValue = log3.getStubsTable().get(x);
         double log5StubbedValue = log5.getStubsTable().get(x);
@@ -68,7 +68,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/logarithmic/ln.csv")
     void stubLogBase2(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
-        double log2Value = log2.calculateFunction(x);
+        double log2Value = log2.calc(x);
         double log3StubbedValue = log3.getStubsTable().get(x);
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
@@ -83,7 +83,7 @@ public class EntireModuleTest {
     void stubLogBase3(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
-        double log3Value = log3.calculateFunction(x);
+        double log3Value = log3.calc(x);
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
@@ -99,7 +99,7 @@ public class EntireModuleTest {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
         double log3StubbedValue = log3.getStubsTable().get(x);
-        double log5Value = log5.calculateFunction(x);
+        double log5Value = log5.calc(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
         double actualResult = function.getStubValue(x, lnStubbedValue,
@@ -115,7 +115,7 @@ public class EntireModuleTest {
         double log2StubbedValue = log2.getStubsTable().get(x);
         double log3StubbedValue = log3.getStubsTable().get(x);
         double log5StubbedValue = log5.getStubsTable().get(x);
-        double log10Value = log10.calculateFunction(x);
+        double log10Value = log10.calc(x);
 
         double actualResult = function.getStubValue(x, lnStubbedValue,
                 log2StubbedValue,
@@ -126,7 +126,7 @@ public class EntireModuleTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/logarithmic/ln.csv")
     void noStubs(Double x, Double expectedResult) {
-        assertEquals(expectedResult, function.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, function.calc(x), DELTA);
     }
 
 }

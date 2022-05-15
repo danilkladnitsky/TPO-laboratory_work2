@@ -29,8 +29,8 @@ public class Log3 extends AbstractFunction {
     }
 
     @Override
-    public Double calculateFunction(Double x) {
-        return ln.calculateFunction(x) / ln.calculateFunction(3.0);
+    public Double calc(Double x) {
+        return ln.calc(x) / ln.calc(3.0);
     }
 
     @Override

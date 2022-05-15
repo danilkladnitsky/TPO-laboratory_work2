@@ -29,7 +29,7 @@ public class Sin extends AbstractFunction {
         super(accuracy);
     }
 
-    public Double calculateFunction(Double arg) {
+    public Double calc(Double arg) {
         double result = 0.0;
         double last;
         int i = 0;

@@ -7,9 +7,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import trigFunctions.Sec;
-import trigFunctions.Tan;
-
 import static java.lang.Math.PI;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,7 +37,7 @@ public class InnerModulesTest {
             "3.1415926, -1.0"
     })
     void secTest(Double x, Double expectedResult) {
-        assertEquals(expectedResult, sec.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, sec.calc(x), DELTA);
     }
 
     // Tangence Testing
@@ -53,8 +50,8 @@ public class InnerModulesTest {
 
         Tan tan = new Tan(MAX_ACCURACY);
 
-        assertEquals(NEGATIVE_VALUE, tan.calculateFunction(-PI / 2.0));
-        assertEquals(NAN_VALUE, tan.calculateFunction(PI / 2.0));
+        assertEquals(NEGATIVE_VALUE, tan.calc(-PI / 2.0));
+        assertEquals(NAN_VALUE, tan.calc(PI / 2.0));
     }
 
     @ParameterizedTest
@@ -69,7 +66,7 @@ public class InnerModulesTest {
             "3.1415926,   0.0"
     })
     void tanTest(Double x, Double expectedResult) {
-        assertEquals(expectedResult, tan.calculateFunction(x), DELTA);
+        assertEquals(expectedResult, tan.calc(x), DELTA);
     }
 
 }

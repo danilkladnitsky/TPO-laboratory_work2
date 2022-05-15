@@ -38,6 +38,6 @@ public class EquationSystemTest {
                                 firstFunction,
                                 secondFunction);
 
-                assertEquals(expectedResult, systemSolver.calculate(x), DELTA);
+                assertEquals(expectedResult, systemSolver.calc(x), DELTA);
         }
 }

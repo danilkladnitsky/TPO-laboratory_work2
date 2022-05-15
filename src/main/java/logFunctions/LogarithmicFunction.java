@@ -20,16 +20,16 @@ public class LogarithmicFunction extends AbstractFunction {
     }
 
     @Override
-    public Double calculateFunction(Double x) {
+    public Double calc(Double x) {
         if (x <= 0.0) {
             throw new IllegalArgumentException("(!) x > 0");
         }
 
-        double lnX = ln.calculateFunction(x);
-        double log2X = log2.calculateFunction(x);
-        double log3X = log3.calculateFunction(x);
-        double log5X = log5.calculateFunction(x);
-        double log10X = log10.calculateFunction(x);
+        double lnX = ln.calc(x);
+        double log2X = log2.calc(x);
+        double log3X = log3.calc(x);
+        double log5X = log5.calc(x);
+        double log10X = log10.calc(x);
 
         return calculateOutput(lnX, log2X, log3X, log5X, log10X);
     }

@@ -12,12 +12,12 @@ public class TrigonometricFunction extends AbstractFunction {
         this.sec = sec;
     }
 
-    public Double calculateFunction(Double x) {
+    public Double calc(Double x) {
         if (x > 0.0) {
             throw new IllegalArgumentException("X должен быть меньше или равен нулю");
         }
 
-        return tan.calculateFunction(x) * sec.calculateFunction(x);
+        return tan.calc(x) * sec.calc(x);
     }
 
     public Double getStubValue(Double x, Double sec, Double tan) {

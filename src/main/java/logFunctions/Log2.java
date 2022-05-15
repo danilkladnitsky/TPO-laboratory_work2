@@ -4,7 +4,6 @@ import function.AbstractFunction;
 
 import static java.lang.Double.NEGATIVE_INFINITY;
 import static java.lang.Double.POSITIVE_INFINITY;
-import static java.lang.Math.log;
 
 public class Log2 extends AbstractFunction {
 
@@ -38,8 +37,8 @@ public class Log2 extends AbstractFunction {
     }
 
     @Override
-    public Double calculateFunction(Double x) {
-        return ln.calculateFunction(x) / ln.calculateFunction(2.0);
+    public Double calc(Double x) {
+        return ln.calc(x) / ln.calc(2.0);
     }
 
     @Override

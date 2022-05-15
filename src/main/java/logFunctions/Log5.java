@@ -35,8 +35,8 @@ public class Log5 extends AbstractFunction {
     }
 
     @Override
-    public Double calculateFunction(Double x) {
-        return ln.calculateFunction(x) / ln.calculateFunction(5.0);
+    public Double calc(Double x) {
+        return ln.calc(x) / ln.calc(5.0);
     }
 
     @Override

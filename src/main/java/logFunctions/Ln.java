@@ -34,7 +34,7 @@ public class Ln extends AbstractFunction {
     }
 
     @Override
-    public Double calculateFunction(Double x) {
+    public Double calc(Double x) {
         if (isNaN(x) || x < 0.0) {
             return NaN;
         }
@@ -63,7 +63,7 @@ public class Ln extends AbstractFunction {
                 value -= ((Math.pow(-1, k) * Math.pow(x - 1, -k)) / k);
                 k++;
             } while (getAccuracy() <= Math.abs(value - prevValue));
-            value += this.calculateFunction(x - 1);
+            value += this.calc(x - 1);
         }
         return value;
     }

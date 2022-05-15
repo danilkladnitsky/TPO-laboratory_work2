@@ -12,10 +12,11 @@ public class EquationSystem {
         this.logarithmicFunction = logarithmicFunction;
     }
 
-    public Double calculate(Double x) {
-        if (x <= 0)
-            return trigonometricFunction.calculateFunction(x);
-        else
-            return logarithmicFunction.calculateFunction(x);
+    public Double calc(Double x) {
+        if (x <= 0) {
+            return trigonometricFunction.calc(x);
+        }
+
+        return logarithmicFunction.calc(x);
     }
 }
