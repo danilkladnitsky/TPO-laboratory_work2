@@ -2,9 +2,12 @@ package logFunctions;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
+import utils.CsvLogger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -127,6 +130,30 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/logarithmic/ln.csv")
     void noStubs(Double x, Double expectedResult) {
         assertEquals(expectedResult, function.calc(x), DELTA);
+    }
+
+    @Test
+    void logResults() {
+        final CsvLogger logger = new CsvLogger("output/ln-results.csv", 0.01, 5.0, 0.25);
+
+        logger.log(ln);
+
+        logger.setFilePath("output/log2-results.csv");
+        logger.log(log2);
+
+        logger.setFilePath("output/log3-results.csv");
+        logger.log(log3);
+
+        logger.setFilePath("output/log5-results.csv");
+        logger.setUpperBorder(10.0);
+        logger.log(log5);
+
+        logger.setFilePath("output/log10-results.csv");
+        logger.setUpperBorder(15.0);
+        logger.log(log10);
+
+        logger.setFilePath("output/function-results.csv");
+        logger.log(function);
     }
 
 }

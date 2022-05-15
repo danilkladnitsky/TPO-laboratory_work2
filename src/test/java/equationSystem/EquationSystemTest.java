@@ -1,10 +1,13 @@
 package equationSystem;
 
+import function.AbstractFunction;
 import function.EquationSystem;
 import logFunctions.*;
 import trigFunctions.*;
+import utils.CsvLogger;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -15,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EquationSystemTest {
         private EquationSystem systemSolver;
+        private AbstractFunction systemSolverLog;
+
         private final Double DELTA = 0.05;
         private final Double ACCURACY = 0.001;
 
@@ -40,4 +45,5 @@ public class EquationSystemTest {
 
                 assertEquals(expectedResult, systemSolver.calc(x), DELTA);
         }
+
 }

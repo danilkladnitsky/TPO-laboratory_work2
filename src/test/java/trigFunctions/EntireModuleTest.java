@@ -2,9 +2,12 @@ package trigFunctions;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
+import utils.CsvLogger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -58,6 +61,19 @@ public class EntireModuleTest {
     void StubbedSec(Double x, Double expectedResult) {
         double actualResult = function.retrieveStubbedValue(x, tan.calc(x), sec.getStubsTable().get(x));
         assertEquals(expectedResult, actualResult, DELTA);
+    }
+
+    @Test
+    void logResults() {
+        final CsvLogger logger = new CsvLogger("output/ln-results.csv", -8, 8, 0.05);
+        logger.setFilePath("output/sec-results.csv");
+        logger.log(sec);
+
+        logger.setFilePath("output/tan-results.csv");
+        logger.log(tan);
+
+        // logger.setFilePath("trigonometric/function-results.csv");
+        // logger.log(function);
     }
 
 }
