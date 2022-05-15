@@ -41,7 +41,7 @@ public class EntireModuleTest {
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
-        double actualResult = function.getStubValue(x,
+        double actualResult = function.retrieveStubbedValue(x,
                 lnStubbedValue,
                 log2StubbedValue,
                 log3StubbedValue, log5StubbedValue, log10StubbedValue);
@@ -57,7 +57,7 @@ public class EntireModuleTest {
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
-        double actualResult = function.getStubValue(x,
+        double actualResult = function.retrieveStubbedValue(x,
                 lnValue,
                 log2StubbedValue,
                 log3StubbedValue, log5StubbedValue, log10StubbedValue);
@@ -73,7 +73,7 @@ public class EntireModuleTest {
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
-        double actualResult = function.getStubValue(x, lnStubbedValue, log2Value,
+        double actualResult = function.retrieveStubbedValue(x, lnStubbedValue, log2Value,
                 log3StubbedValue, log5StubbedValue, log10StubbedValue);
         assertEquals(expectedResult, actualResult, DELTA);
     }
@@ -87,7 +87,7 @@ public class EntireModuleTest {
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
-        double actualResult = function.getStubValue(x, lnStubbedValue,
+        double actualResult = function.retrieveStubbedValue(x, lnStubbedValue,
                 log2StubbedValue,
                 log3Value, log5StubbedValue, log10StubbedValue);
         assertEquals(expectedResult, actualResult, DELTA);
@@ -102,7 +102,7 @@ public class EntireModuleTest {
         double log5Value = log5.calc(x);
         double log10StubbedValue = log10.getStubsTable().get(x);
 
-        double actualResult = function.getStubValue(x, lnStubbedValue,
+        double actualResult = function.retrieveStubbedValue(x, lnStubbedValue,
                 log2StubbedValue,
                 log3StubbedValue, log5Value, log10StubbedValue);
         assertEquals(expectedResult, actualResult, DELTA);
@@ -117,7 +117,7 @@ public class EntireModuleTest {
         double log5StubbedValue = log5.getStubsTable().get(x);
         double log10Value = log10.calc(x);
 
-        double actualResult = function.getStubValue(x, lnStubbedValue,
+        double actualResult = function.retrieveStubbedValue(x, lnStubbedValue,
                 log2StubbedValue,
                 log3StubbedValue, log5StubbedValue, log10Value);
         assertEquals(expectedResult, actualResult, DELTA);

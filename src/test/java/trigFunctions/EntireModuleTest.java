@@ -32,7 +32,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/trigonometric/trig.csv")
     @DisplayName("Тангенс и секанс - заглушки")
     void Stubbed(Double x, Double expectedResult) {
-        double actualResult = function.getStubValue(x, tan.getStubsTable().get(x), sec.getStubsTable().get(x));
+        double actualResult = function.retrieveStubbedValue(x, tan.getStubsTable().get(x), sec.getStubsTable().get(x));
         assertEquals(expectedResult, actualResult, DELTA);
     }
 
@@ -48,7 +48,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/trigonometric/trig.csv")
     @DisplayName("Тангенс - заглушка")
     void StubbedTan(Double x, Double expectedResult) {
-        double actualResult = function.getStubValue(x, tan.getStubsTable().get(x), sec.calc(x));
+        double actualResult = function.retrieveStubbedValue(x, tan.getStubsTable().get(x), sec.calc(x));
         assertEquals(expectedResult, actualResult, DELTA);
     }
 
@@ -56,7 +56,7 @@ public class EntireModuleTest {
     @CsvFileSource(resources = "/trigonometric/trig.csv")
     @DisplayName("Секанс - заглушка")
     void StubbedSec(Double x, Double expectedResult) {
-        double actualResult = function.getStubValue(x, tan.calc(x), sec.getStubsTable().get(x));
+        double actualResult = function.retrieveStubbedValue(x, tan.calc(x), sec.getStubsTable().get(x));
         assertEquals(expectedResult, actualResult, DELTA);
     }
 

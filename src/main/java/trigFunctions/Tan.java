@@ -4,9 +4,7 @@ import function.AbstractFunction;
 import static java.lang.Math.*;
 
 public class Tan extends AbstractFunction {
-
     {
-
         getStubsTable().put(-0.2, sin(-0.2) / cos(-0.2));
         getStubsTable().put(-0.5, sin(-0.5) / cos(-0.5));
         getStubsTable().put(-1.0, sin(-1.0) / cos(-1.0));

@@ -40,7 +40,7 @@ public class Log10 extends AbstractFunction {
     }
 
     @Override
-    public Double getStubValue(Double stub) {
+    public Double retrieveStubbedValue(Double stub) {
         return stub / ln.getStubsTable().get(10.0);
     }
 }

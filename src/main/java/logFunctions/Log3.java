@@ -34,7 +34,7 @@ public class Log3 extends AbstractFunction {
     }
 
     @Override
-    public Double getStubValue(Double stub) {
+    public Double retrieveStubbedValue(Double stub) {
         return stub / ln.getStubsTable().get(3.0);
     }
 }

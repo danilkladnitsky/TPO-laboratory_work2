@@ -14,9 +14,9 @@ public abstract class AbstractFunction {
         this.accuracy = accuracy;
     }
 
-    public Double getStubValue(Double stub) {
+    public abstract Double calc(Double x);
+
+    public Double retrieveStubbedValue(Double stub) {
         return calc(stub);
     }
-
-    public abstract Double calc(Double x);
 }

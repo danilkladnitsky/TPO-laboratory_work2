@@ -20,7 +20,7 @@ public class TrigonometricFunction extends AbstractFunction {
         return tan.calc(x) * sec.calc(x);
     }
 
-    public Double getStubValue(Double x, Double sec, Double tan) {
+    public Double retrieveStubbedValue(Double x, Double sec, Double tan) {
         if (x > 0.0) {
             throw new IllegalArgumentException("X должен быть меньше или равен нулю");
         }

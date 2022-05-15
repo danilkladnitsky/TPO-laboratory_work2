@@ -34,7 +34,7 @@ public class LogarithmicFunction extends AbstractFunction {
         return calculateOutput(lnX, log2X, log3X, log5X, log10X);
     }
 
-    public Double getStubValue(Double x, Double ln, Double log2, Double log3, Double log5, Double log10) {
+    public Double retrieveStubbedValue(Double x, Double ln, Double log2, Double log3, Double log5, Double log10) {
         if (x <= 0.0) {
             throw new IllegalArgumentException("(!) x > 0");
         }

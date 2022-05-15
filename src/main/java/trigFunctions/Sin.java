@@ -4,7 +4,6 @@ import function.AbstractFunction;
 import static java.lang.Math.*;
 
 public class Sin extends AbstractFunction {
-
     {
         getStubsTable().put(3 * PI / 4, sin(3 * PI / 4));
         getStubsTable().put(PI / 3, sin(PI / 3));
