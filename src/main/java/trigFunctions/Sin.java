@@ -4,26 +4,6 @@ import function.AbstractFunction;
 import static java.lang.Math.*;
 
 public class Sin extends AbstractFunction {
-    {
-        getStubsTable().put(3 * PI / 4, sin(3 * PI / 4));
-        getStubsTable().put(PI / 3, sin(PI / 3));
-        getStubsTable().put(PI / 2, sin(PI / 2));
-        getStubsTable().put(PI / 4, sin(PI / 4));
-        getStubsTable().put(PI / 6, sin(PI / 6));
-        getStubsTable().put(PI, sin(PI));
-        getStubsTable().put(-PI, sin(-PI));
-        getStubsTable().put(-PI / 6, sin(-PI / 6));
-        getStubsTable().put(-PI / 4, sin(-PI / 4));
-        getStubsTable().put(-PI / 2, sin(-PI / 2));
-        getStubsTable().put(-PI / 3, sin(-PI / 3));
-        getStubsTable().put(-3 * PI / 4, sin(-3 * PI / 4));
-        getStubsTable().put(-5.49778, sin(-5.49778));
-        getStubsTable().put(-5.25712, sin(-5.25712));
-        getStubsTable().put(-5.12345, sin(-5.12345));
-        getStubsTable().put(-2.509, sin(-2.509));
-        getStubsTable().put(-2.35619, sin(-2.35619));
-    }
-
     public Sin(Double accuracy) {
         super(accuracy);
     }
