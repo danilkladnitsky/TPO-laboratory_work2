@@ -5,14 +5,6 @@ import function.AbstractFunction;
 import static java.lang.Double.*;
 
 public class Ln extends AbstractFunction {
-    {
-        // Stub values
-        getStubsTable().put(25.0, 3.21887);
-        getStubsTable().put(40.0, 3.6888794);
-        getStubsTable().put(2.0, 0.69314718);
-        getStubsTable().put(7.0, 1.94591015);
-        getStubsTable().put(27.0, 3.295836866);
-    }
 
     public Ln(Double accuracy) {
         super(accuracy);
@@ -56,5 +48,14 @@ public class Ln extends AbstractFunction {
             value += this.calc(x - 1);
         }
         return value;
+    }
+
+    {
+        // Stub values
+        getStubsTable().put(25.0, 3.21887);
+        getStubsTable().put(40.0, 3.6888794);
+        getStubsTable().put(2.0, 0.69314718);
+        getStubsTable().put(7.0, 1.94591015);
+        getStubsTable().put(27.0, 3.295836866);
     }
 }

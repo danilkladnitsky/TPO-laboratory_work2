@@ -36,7 +36,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void stubbed(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
@@ -52,7 +52,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void stubNaturalLog(Double x, Double expectedResult) {
         double lnValue = ln.calc(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
@@ -68,7 +68,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void stubLogBase2(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2Value = log2.calc(x);
@@ -82,7 +82,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void stubLogBase3(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
@@ -97,7 +97,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void stubLogBase5(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
@@ -112,7 +112,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void stubLogBase10(Double x, Double expectedResult) {
         double lnStubbedValue = ln.getStubsTable().get(x);
         double log2StubbedValue = log2.getStubsTable().get(x);
@@ -127,7 +127,7 @@ public class EntireModuleTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/logarithmic/ln.csv")
+    @CsvFileSource(resources = "/logarithmic/modules_test.csv")
     void noStubs(Double x, Double expectedResult) {
         assertEquals(expectedResult, function.calc(x), MAX_DIFF);
     }
@@ -138,7 +138,7 @@ public class EntireModuleTest {
         final double UPPER_BORDER = 5.0;
         final double STEP = 0.25;
 
-        final CsvLogger logger = new CsvLogger("output/ln.csv", LOWER_BORDER, UPPER_BORDER, STEP);
+        final CsvLogger logger = new CsvLogger("output/modules_test_results.csv", LOWER_BORDER, UPPER_BORDER, STEP);
 
         logger.log(ln);
 

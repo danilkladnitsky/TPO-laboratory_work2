@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static java.lang.Math.PI;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,21 +27,20 @@ public class InnerModulesTest {
     }
 
     // Secance Testing
-
     @ParameterizedTest
-    @CsvSource(value = {
-            "-3.1415926, -1.0",
-            "0.0, 1.0",
-            "1, 1.85081",
-            "2, -2.40299",
-            "3.1415926, -1.0"
-    })
+    @CsvFileSource(resources = "/trigonometric/sec_test.csv")
     void secTest(Double x, Double expectedResult) {
         assertEquals(expectedResult, sec.calc(x), DELTA);
     }
 
     // Tangence Testing
+    @ParameterizedTest
+    @CsvFileSource(resources = "/trigonometric/tan_test.csv")
+    void tanTest(Double x, Double expectedResult) {
+        assertEquals(expectedResult, tan.calc(x), DELTA);
+    }
 
+    // Critical points
     @Test
     void criticalPointsForTanTest() {
         final double MAX_ACCURACY = 0.000000001;
@@ -51,22 +50,30 @@ public class InnerModulesTest {
         Tan tan = new Tan(MAX_ACCURACY);
 
         assertEquals(NEGATIVE_VALUE, tan.calc(-PI / 2.0));
+
         assertEquals(NAN_VALUE, tan.calc(PI / 2.0));
+        assertEquals(NAN_VALUE, tan.calc(2 * PI / 2.0));
+        assertEquals(NAN_VALUE, tan.calc(4 * PI / 2.0));
+        assertEquals(NAN_VALUE, tan.calc(6 * PI / 2.0));
+        assertEquals(NAN_VALUE, tan.calc(8 * PI / 2.0));
+        assertEquals(NAN_VALUE, tan.calc(10 * PI / 2.0));
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "-3.1415926,  0.0",
-            "-1.5,    -14.1014224",
-            "-2,   2.18503",
-            "-3, 0.14254",
-            "0.0,      0.0",
-            "1,     1.55740",
-            "2,      -2.18503",
-            "3.1415926,   0.0"
-    })
-    void tanTest(Double x, Double expectedResult) {
-        assertEquals(expectedResult, tan.calc(x), DELTA);
+    @Test
+    void criticalPointsForSecTest() {
+        final double MAX_ACCURACY = 0.000000001;
+        final double NAN_VALUE = Double.NaN;
+        final double POSITIVE_VALUE = Double.POSITIVE_INFINITY;
+
+        Sec sec = new Sec(MAX_ACCURACY);
+
+        assertEquals(POSITIVE_VALUE, sec.calc(-PI / 2.0));
+
+        assertEquals(NAN_VALUE, sec.calc(2 * PI / 2.0));
+        assertEquals(NAN_VALUE, sec.calc(4 * PI / 2.0));
+        assertEquals(NAN_VALUE, sec.calc(6 * PI / 2.0));
+        assertEquals(NAN_VALUE, sec.calc(8 * PI / 2.0));
+        assertEquals(NAN_VALUE, sec.calc(10 * PI / 2.0));
     }
 
 }
