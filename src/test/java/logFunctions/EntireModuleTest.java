@@ -22,7 +22,7 @@ public class EntireModuleTest {
     private Log10 log10;
     private LogarithmicFunction function;
 
-    private final double DELTA = 0.05;
+    private final double MAX_DIFF = 0.05;
     private final double ACCURACY = 0.0001;
 
     @BeforeAll
@@ -48,7 +48,7 @@ public class EntireModuleTest {
                 lnStubbedValue,
                 log2StubbedValue,
                 log3StubbedValue, log5StubbedValue, log10StubbedValue);
-        assertEquals(expectedResult, actualResult, DELTA);
+        assertEquals(expectedResult, actualResult, MAX_DIFF);
     }
 
     @ParameterizedTest
@@ -64,7 +64,7 @@ public class EntireModuleTest {
                 lnValue,
                 log2StubbedValue,
                 log3StubbedValue, log5StubbedValue, log10StubbedValue);
-        assertEquals(expectedResult, actualResult, DELTA);
+        assertEquals(expectedResult, actualResult, MAX_DIFF);
     }
 
     @ParameterizedTest
@@ -78,7 +78,7 @@ public class EntireModuleTest {
 
         double actualResult = function.retrieveStubbedValue(x, lnStubbedValue, log2Value,
                 log3StubbedValue, log5StubbedValue, log10StubbedValue);
-        assertEquals(expectedResult, actualResult, DELTA);
+        assertEquals(expectedResult, actualResult, MAX_DIFF);
     }
 
     @ParameterizedTest
@@ -93,7 +93,7 @@ public class EntireModuleTest {
         double actualResult = function.retrieveStubbedValue(x, lnStubbedValue,
                 log2StubbedValue,
                 log3Value, log5StubbedValue, log10StubbedValue);
-        assertEquals(expectedResult, actualResult, DELTA);
+        assertEquals(expectedResult, actualResult, MAX_DIFF);
     }
 
     @ParameterizedTest
@@ -108,7 +108,7 @@ public class EntireModuleTest {
         double actualResult = function.retrieveStubbedValue(x, lnStubbedValue,
                 log2StubbedValue,
                 log3StubbedValue, log5Value, log10StubbedValue);
-        assertEquals(expectedResult, actualResult, DELTA);
+        assertEquals(expectedResult, actualResult, MAX_DIFF);
     }
 
     @ParameterizedTest
@@ -123,36 +123,40 @@ public class EntireModuleTest {
         double actualResult = function.retrieveStubbedValue(x, lnStubbedValue,
                 log2StubbedValue,
                 log3StubbedValue, log5StubbedValue, log10Value);
-        assertEquals(expectedResult, actualResult, DELTA);
+        assertEquals(expectedResult, actualResult, MAX_DIFF);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/logarithmic/ln.csv")
     void noStubs(Double x, Double expectedResult) {
-        assertEquals(expectedResult, function.calc(x), DELTA);
+        assertEquals(expectedResult, function.calc(x), MAX_DIFF);
     }
 
     @Test
-    void logResults() {
-        final CsvLogger logger = new CsvLogger("output/ln-results.csv", 0.01, 5.0, 0.25);
+    void getCSVOutput() {
+        final double LOWER_BORDER = 0.01;
+        final double UPPER_BORDER = 5.0;
+        final double STEP = 0.25;
+
+        final CsvLogger logger = new CsvLogger("output/ln.csv", LOWER_BORDER, UPPER_BORDER, STEP);
 
         logger.log(ln);
 
-        logger.setFilePath("output/log2-results.csv");
+        logger.setFilePath("output/log2.csv");
         logger.log(log2);
 
-        logger.setFilePath("output/log3-results.csv");
+        logger.setFilePath("output/log3.csv");
         logger.log(log3);
 
-        logger.setFilePath("output/log5-results.csv");
+        logger.setFilePath("output/log5.csv");
         logger.setUpperBorder(10.0);
         logger.log(log5);
 
-        logger.setFilePath("output/log10-results.csv");
+        logger.setFilePath("output/log10.csv");
         logger.setUpperBorder(15.0);
         logger.log(log10);
 
-        logger.setFilePath("output/function-results.csv");
+        logger.setFilePath("output/log_function.csv");
         logger.log(function);
     }
 
